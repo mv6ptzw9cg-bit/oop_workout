@@ -69,6 +69,38 @@ class Vehicle:
     def service_due(self) -> bool:
         return self.kilometres > 15000
 
+    # __str__()
+    # Returns the same string as describe().
+    # This makes print(vehicle) display
+    # the vehicle description.
+    def __str__(self) -> str:
+        return self.describe()
+
+    # __repr__()
+    # Returns a string representation of the object.
+    # type(self).__name__ automatically
+    # returns the correct class name.
+    def __repr__(self) -> str:
+        return f"{type(self).__name__}('{self.plate}', '{self.make}', '{self.model}', {self.year})"
+
+    # __eq__()
+    # Two vehicles are equal if they
+    # have the same number plate.
+    def __eq__(self, other) -> bool:
+
+        # Check that the other object
+        # is also a Vehicle.
+        if not isinstance(other, Vehicle):
+            return False
+
+        return self.plate == other.plate
+
+    # __hash__()
+    # Returns the hash value of the vehicle's plate.
+    # This allows Vehicle objects to be used
+    # in sets and dictionaries.
+    def __hash__(self) -> int:
+        return hash(self.plate)
 
 if __name__ == "__main__":
     # Create a Vehicle object
