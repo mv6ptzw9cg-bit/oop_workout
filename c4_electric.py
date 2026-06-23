@@ -88,10 +88,11 @@ class ElectricCar(Vehicle):
     # ElectricCar.drive() first uses battery charge,
     # then calls the parent drive() method.
     def drive(self, km: int) -> float:
+        if km <= 0:
+            raise ValueError("Kilometres must be positive")
 
         # Calculate how much energy is needed.
-        # Formula:
-        # energy used = battery_kwh * km / range_km
+        # Formula: energy used = battery_kwh * km / range_km
         energy_used = self.battery_kwh * km / self.range_km
 
         # Check if there is enough charge first.
@@ -168,6 +169,17 @@ if __name__ == "__main__":
     # This should raise a ValueError and should not change kilometres.
     try:
         e.drive(1000)
+    except ValueError as error:
+        print(f"Caught error: {error}")
+
+    # Test invalid kilometres
+    try:
+        e.drive(0)
+    except ValueError as error:
+        print(f"Caught error: {error}")
+
+    try:
+        e.drive(-10)
     except ValueError as error:
         print(f"Caught error: {error}")
 
