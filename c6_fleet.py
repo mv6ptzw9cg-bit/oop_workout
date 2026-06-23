@@ -23,7 +23,6 @@ from c1_vehicle import Vehicle
 from c3_types import Car, Truck, Motorcycle
 from c4_electric import ElectricCar
 
-
 class Fleet:
 
     # Constructor
