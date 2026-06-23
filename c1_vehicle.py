@@ -136,3 +136,24 @@ if __name__ == "__main__":
         v.drive(-1)
     except ValueError as e:
         print(f"Caught error: {e}")
+
+    try:
+        v.drive(0)
+    except ValueError as e:
+        print(f"Caught error: {e}")
+        
+    # Test __str__
+    print(v)
+
+    # Test __repr__
+    print(repr(v))
+
+    # Test __eq__
+    v2 = Vehicle("B-AB-1234", "Toyota", "Corolla", 2020)
+    print(v == v2)      # True
+
+    v3 = Vehicle("B-XX-0000", "Toyota", "Corolla", 2020)
+    print(v == v3)      # False
+
+    # Test __hash__
+    print(hash(v))
