@@ -60,6 +60,8 @@ class FuelledVehicle(Vehicle):
     # Then it calls the parent drive() method
     # to add kilometres.
     def drive(self, km: int) -> float:
+        if km <= 0:
+            raise ValueError("Kilometres must be positive")
         fuel_used = self.consumption * km / 100
 
         # Validate fuel first.
@@ -73,6 +75,7 @@ class FuelledVehicle(Vehicle):
 
         return fuel_used
 
+    
     # range_remaining()
     # Calculates how far the vehicle can still drive
     # with the fuel currently in the tank.
@@ -194,6 +197,19 @@ if __name__ == "__main__":
         tr.drive(2000)
     except ValueError as e:
         print(f"Caught error: {e}")
+
+    try:
+        c.drive(0)
+    except ValueError as e:
+        print(f"Caught error: {e}")
+
+    try:
+        c.drive(-5)
+    except ValueError as e:
+        print(f"Caught error: {e}")
+    
+    print(f"Car fuel level after failed drives: {c.tank.get_level()}")
+    print(f"Car kilometres after failed drives: {c.kilometres}")
 
     # Check that truck state did not change after failed drive
     print(f"Truck fuel level after failed drive: {tr.tank.get_level()}")
