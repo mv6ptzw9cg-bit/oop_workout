@@ -246,7 +246,8 @@ if __name__ == "__main__":
     print_summary(fleet)
 
     # Stretch test: cars_only()
-    print(fleet.cars_only())
+    for car in fleet.cars_only():
+        print(car)
 
     # Stretch test: average_kilometres()
     print(fleet.average_kilometres())
