@@ -17,7 +17,7 @@ I completed all challenges individually.
 
 ## Difficulties Encountered
 
-- Figuring out where to put the dunder methods because the instructions mentioned both `c5_dunders.py` and `c1_vehicle.py`.
-- Making sure `drive()` didn't update the kilometres when an error was raised.
-- Understanding why private attributes like `__level` couldn't be accessed directly.
-- Making sure `__eq__()` and `__hash__()` worked correctly using the number plate as the vehicle's identity.
+- Figuring out where to put the dunder methods because the instructions mentioned both c5_dunders.py and extending c1_vehicle.py.
+- Debugging the drive() method in Challenge 3. At first, it wasn't giving the output I expected, and I had to trace through the code to make sure the fuel was checked before the kilometres were updated.
+- Understanding how private attributes (such as __level) work and why they can't be accessed directly from outside the class.
+- Testing different cases to make sure errors (such as not enough fuel or invalid kilometres) didn't change the vehicle's state when an exception was raised.
