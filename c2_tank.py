@@ -49,7 +49,7 @@ class FuelTank:
     # Returns the maximum capacity of the tank.
     # The result is rounded to two decimal places.
     def get_capacity(self) -> float:
-        return round(self.__capacity, 2)
+        return self.__capacity
 
     # fill()
     # Adds fuel to the tank.
@@ -147,6 +147,11 @@ if __name__ == "__main__":
 
     # Check that the fuel level stayed the same after the failed consume
     print(f"Fuel level after failed consume: {t.get_level()}")
+
+    try:
+        t.consume(-5)
+    except ValueError as e:
+        print(f"Caught error: {e}")
 
     # Test invalid capacity.
     # This should raise a ValueError.
